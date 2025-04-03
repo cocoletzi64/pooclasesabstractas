@@ -1,13 +1,11 @@
 package org.ericksantillan.pooclasesabst.form;
 
-import org.ericksantillan.pooclasesabst.form.elemtos.ElementosForm;
-import org.ericksantillan.pooclasesabst.form.elemtos.InputForm;
-import org.ericksantillan.pooclasesabst.form.elemtos.SelectForm;
-import org.ericksantillan.pooclasesabst.form.elemtos.TextAreaForm;
+import org.ericksantillan.pooclasesabst.form.elemtos.*;
 import org.ericksantillan.pooclasesabst.form.elemtos.select.Opcion;
 
 import javax.swing.text.Element;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class claseabstracta {
@@ -22,11 +20,10 @@ public class claseabstracta {
 
         SelectForm lenguaje=new SelectForm("lenguaje");
         Opcion java=new Opcion("1","Java");
-        lenguaje.addOpcion(java);
-        lenguaje.addOpcion(new Opcion("2","Python"));
-        lenguaje.addOpcion(new Opcion("3","Java Script"));
-        lenguaje.addOpcion(new Opcion("4","Type Script"));
-        lenguaje.addOpcion(new Opcion("5","PHP"));
+        lenguaje.addOpcion(java).addOpcion(new Opcion("2","Python"))
+                .addOpcion(new Opcion("3","Java Script"))
+                .addOpcion(new Opcion("4","Type Script"))
+                .addOpcion(new Opcion("5","PHP"));
 
         username.setValor("erick.doe");
         password.setValor("a1b2c3");
@@ -35,19 +32,12 @@ public class claseabstracta {
         experiencia.setValor(" aproximadamente 7 mese de experiencia");
         java.setSelected(true);
 
-        List<ElementosForm> elementos=new ArrayList<>();
+        List<ElementosForm> elementos= Arrays.asList(username,password,email,edad
+        ,experiencia,lenguaje);
 
-        elementos.add(username);
-        elementos.add(password);
-        elementos.add(email);
-        elementos.add(edad);
-        elementos.add(experiencia);
-        elementos.add(lenguaje);
-
-        for(ElementosForm e:elementos){
+        elementos.forEach(e ->{
             System.out.println(e.dibujarhtml());
-        }
-
-
+            System.out.println("<br>");
+        });
     }
 }
