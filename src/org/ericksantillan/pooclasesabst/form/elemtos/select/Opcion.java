@@ -37,5 +37,11 @@ public class Opcion {
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+
+    }
+    public Opcion setSelected() {
+        this.selected = selected;
+        return this;
+
     }
 }

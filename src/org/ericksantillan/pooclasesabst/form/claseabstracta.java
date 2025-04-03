@@ -22,18 +22,26 @@ public class claseabstracta {
         Opcion java=new Opcion("1","Java");
         lenguaje.addOpcion(java).addOpcion(new Opcion("2","Python"))
                 .addOpcion(new Opcion("3","Java Script"))
-                .addOpcion(new Opcion("4","Type Script"))
+                .addOpcion(new Opcion("4","Type Script").setSelected())
                 .addOpcion(new Opcion("5","PHP"));
 
+        ElementosForm saludar=new ElementosForm("saludo") {
+            @Override
+            public String dibujarhtml() {
+                return "<input disabled name ='"+this.nombre+"'value =\""+this.valor+"\">";
+            }
+        };
+        saludar.setValor("Hola que tal este campo esta desabilitado");
         username.setValor("erick.doe");
         password.setValor("a1b2c3");
         email.setValor("erickalbertosantillancocoletzi@gmail.com");
         edad.setValor("28");
         experiencia.setValor(" aproximadamente 7 mese de experiencia");
-        java.setSelected(true);
+
+        //java.setSelected(true);
 
         List<ElementosForm> elementos= Arrays.asList(username,password,email,edad
-        ,experiencia,lenguaje);
+        ,experiencia,lenguaje,saludar);
 
         elementos.forEach(e ->{
             System.out.println(e.dibujarhtml());
