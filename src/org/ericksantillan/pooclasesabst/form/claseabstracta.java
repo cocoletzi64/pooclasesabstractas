@@ -7,6 +7,8 @@ import org.ericksantillan.pooclasesabst.form.elemtos.TextAreaForm;
 import org.ericksantillan.pooclasesabst.form.elemtos.select.Opcion;
 
 import javax.swing.text.Element;
+import java.util.ArrayList;
+import java.util.List;
 
 public class claseabstracta {
     public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class claseabstracta {
         InputForm edad=new InputForm("edad","number");
 
 
-        TextAreaForm experienci=new TextAreaForm("exp",5, 9);
+        TextAreaForm experiencia=new TextAreaForm("exp",5, 9);
 
         SelectForm lenguaje=new SelectForm("lenguaje");
         Opcion java=new Opcion("1","Java");
@@ -27,9 +29,25 @@ public class claseabstracta {
         lenguaje.addOpcion(new Opcion("5","PHP"));
 
         username.setValor("erick.doe");
-        username.setTipo("a1b2c3");
+        password.setValor("a1b2c3");
         email.setValor("erickalbertosantillancocoletzi@gmail.com");
         edad.setValor("28");
+        experiencia.setValor(" aproximadamente 7 mese de experiencia");
         java.setSelected(true);
+
+        List<ElementosForm> elementos=new ArrayList<>();
+
+        elementos.add(username);
+        elementos.add(password);
+        elementos.add(email);
+        elementos.add(edad);
+        elementos.add(experiencia);
+        elementos.add(lenguaje);
+
+        for(ElementosForm e:elementos){
+            System.out.println(e.dibujarhtml());
+        }
+
+
     }
 }

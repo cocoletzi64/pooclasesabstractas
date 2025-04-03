@@ -25,8 +25,8 @@ public class InputForm extends ElementosForm{
     //metodos
     @Override
     public String dibujarhtml() {
-        return "<input type=''"+this.tipo
-                +" name =''"+this.nombre
-                + "value=''"+this.valor+">";
+        return "<input type= ''"+this.tipo+"''"
+                +" name=''"+this.nombre+"''"
+                + "value=''"+this.valor+"''"+">";
     }
 }
